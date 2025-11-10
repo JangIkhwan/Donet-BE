@@ -47,7 +47,7 @@ spring:
         platform: mysql
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: create
 
 ---
 # 공통 속성
