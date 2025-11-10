@@ -18,7 +18,7 @@ services:
     env_file:
       - .env
     depends_on:
-      - donet-redis
+      - redis
     networks:
       - donet-net
 
@@ -30,7 +30,7 @@ services:
     env_file:
       - .env
     depends_on:
-      - donet-redis
+      - redis
     networks:
       - donet-net
 
