@@ -36,6 +36,11 @@ public class SecurityConfig {
                 .sessionManagement(session->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)); // JWT 사용하니 세션을 사용하지 않음
 
+        http
+                .cors((cors) -> cors
+                        .configurationSource(corsConfigurationSource())
+                );
+
         // 엔드포인트별 인증 인가 설정
         http
                 .authorizeHttpRequests(request -> request
@@ -55,6 +60,7 @@ public class SecurityConfig {
         return http.build();
     }
 
+    @Bean
     CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(List.of("http://localhost:3000", "http://127.0.0.1:3000", "https://donet-fe.vercel.app"));
